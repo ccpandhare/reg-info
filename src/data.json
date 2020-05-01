@@ -1,0 +1,86 @@
+{
+    "reg69": {
+        "name": "I2C Adder",
+        "model": {
+            "name": "ST8",
+            "addr": ["0x50 W", "0x51 R"]
+        },
+        "info": "Lorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\n",
+        "bits": [ 
+            {
+                "index": 0,
+                "name": "A",
+                "value": "x",
+                "defaultValue": "1",
+                "permissions": "r",
+                "info": ["bit0.value0.info", "bit0.value1.info"]
+            },
+            {
+                "index": 1,
+                "name": "B",
+                "value": "0",
+                "defaultValue": "1",
+                "permissions": "r",
+                "info": ["bit1.value0.info", "bit1.value1.info"]
+            },
+            {
+                "index": 2,
+                "name": "C",
+                "value": "1",
+                "defaultValue": "1",
+                "permissions": "r",
+                "info": ["bit2.value0.info", "bit2.value1.info"]
+            },
+            {
+                "index": 3,
+                "name": "D",
+                "value": "0",
+                "defaultValue": "1",
+                "permissions": "r",
+                "info": ["bit3.value0.info", "bit3.value1.info"]
+            }
+        ]
+    },
+    "reg420": {
+        "name": "CAN Adder",
+        "model": {
+            "name": "ST0",
+            "addr": ["0x50 W", "0x51 R"]
+        },
+        "info": "LODA Lorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\nLorem ipsum dolor sit amet\n",
+        "bits": [ 
+            {
+                "index": 0,
+                "name": "SUPER DUPER LARGE NAME 12345",
+                "value": "0",
+                "defaultValue": "1",
+                "permissions": "r",
+                "info": ["bit0.value0.info", "bit0.value1.info"]
+            },
+            {
+                "index": 1,
+                "name": "Bit0",
+                "value": "0",
+                "defaultValue": "1",
+                "permissions": "r",
+                "info": ["bit1.value0.info", "bit1.value1.info"]
+            },
+            {
+                "index": 2,
+                "name": "Bit0",
+                "value": "0",
+                "defaultValue": "1",
+                "permissions": "r",
+                "info": ["bit2.value0.info", "bit2.value1.info"]
+            },
+            {
+                "index": 3,
+                "name": "Bit0",
+                "value": "0",
+                "defaultValue": "1",
+                "permissions": "r",
+                "info": ["bit3.value0.info", "bit3.value1.info"]
+            }
+        ]
+    }
+}

@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple: #c678dd;
+  --error: #f44747;
+  --coral: #e06c75;
+  --whiskey: #d19a66;
+  --chalky: #e5c07b;
+  --lightDark: #7f848e;
+  --dark: #5c6370;
+  --darkDark: #282c34;
+  --malibu: #61afef;
+  --green: #98c379;
+  --fountainBlue: #56b6c2;
+  --invalid: #ffffff;
+}
+
+body {
+  background-color: var(--darkDark);
+  min-height: 100vh;
+  color: var(--invalid);
+  box-sizing: border-box;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.regLink {
+  color: var(--malibu);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.regLink.selected, .regLink:hover {
+  background: var(--malibu);
+  color: #000;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#Header {
+  font-size: 3rem;
+  padding: 20px 30px;
+  color: var(--malibu);
+  border-bottom: 1px solid var(--dark);
+}
+
+#Content {
+  display: flex;
+  flex: 1;
+}
+
+#LeftSection {
+  width: 300px;
+  border-right: 1px solid var(--dark);
+  text-align: center;
+}
+
+#RegSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#RegName {
+  font-size: 2rem;
+  padding: 20px 30px;
+  margin-bottom: 10px;
+}
+
+#RegInfo {
+  padding: 5px 10px;
+}
+
+#Bits {
+  --cols: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), min-content);
+  grid-template-rows: repeat(3, auto);
+  justify-content: center;
+}
+
+.bitInfo {
+  padding: 30px 50px;
+  display: inline-block;
+  color: #fff;
+  border: 1px solid var(--dark);
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+}
+.value.bitInfo {
+  background: var(--invalid);
+  color: var(--darkDark);
+  border: 1px solid black;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+.bitInfo.selected {
+  background: var(--malibu);
+}
+.bitInfo.permissions {
+}
+
+#Info {
+  flex: 0.75;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#Info div {
+  width: 50vw;
+  padding: 10px 20px;
+  border: 1px solid var(--dark);
+}
