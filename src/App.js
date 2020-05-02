@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import "./App.css";
 import _data from "./data";
 
@@ -50,6 +50,7 @@ function App() {
     <div className="App">
       <div id="Header">
         $ RegInfo
+        <LoadJSON setData={setData} />
       </div>
       <div id="Content">
         <div id="LeftSection">
@@ -91,6 +92,47 @@ function App() {
   );
 }
 
+function LoadJSON({setData}) {
+  const fileInput = useRef();
+  const [file, setFile] = useState(null);
+  const [error, setError] = useState(null);
+  const handleFileInputChange = _ => {
+    setFile(null);
+    setError(null);
+    const _file = fileInput.current.files[0];
+    const isValid = validateFile(_file);
+    if(isValid) {
+      setFile(_file);
+      _file.text().then(data => {
+        setData(JSON.parse(data))
+      }).catch(err => setError(String(err)));
+    } else {
+      setError("Invalid File");
+    }
+  }
+  useEffect(() => {
+    const detectU = e => {
+      if(e.key === 'u') {
+        fileInput.current.click();
+      }
+    }
+    document.addEventListener("keyup", detectU);
+    return _ => {
+      document.removeEventListener("keyup", detectU);
+    }
+  })
+  const validateFile = file => {
+    return !!file.name.match(/.json$/i);
+  }
+  return (
+    <div id="LoadJSON">
+      <button onClick={_ => fileInput.current.click()}>$ Load JSON</button>
+      <input type="file" ref={fileInput} onChange={handleFileInputChange} />
+      {error ? <label className="error">{error}</label> : file && <label>{file.name}</label>}
+    </div>
+  );
+}
+
 function BitInfo({bit, selBit, property, setSelBit}) {
   const isSelected = selBit ? selBit.index === bit.index : false;
   return (
@@ -128,7 +170,6 @@ function getNextBit(bits, pressedKey, currentIndex) {
     case 'l':
       if (currentIndex == null) currentIndex = -1;
       nextIndex = currentIndex + 1 < bits.length ? currentIndex + 1 : 0;
-      console.log(nextIndex)
       return bits[nextIndex];
     case 'h':
       if (currentIndex == null) currentIndex = 0;
