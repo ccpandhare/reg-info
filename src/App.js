@@ -7,17 +7,18 @@ function App() {
   const regList = Object.keys(data);
   const [reg, setReg] = useState(regList[0]);
   const [selBit, setSelBit] = useState(null);
-  const regData = data[reg];
 
   useEffect(() => {
-    if(!selBit) return;
-    setSelBit(regData.bits[selBit.index]);
+    if(selBit)
+      setSelBit(regData.bits[selBit.index]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   useEffect(() => {
     setSelBit(null);
   }, [reg])
+
+  const regData = data[reg];
 
   const handleKeyDown = useCallback((e) => {
       switch (e.key) {
@@ -46,11 +47,11 @@ function App() {
 
   document.onkeydown = handleKeyDown;
 
-  return (
+  return regData ? (
     <div className="App">
       <div id="Header">
         $ RegInfo
-        <LoadJSON setData={setData} />
+        <LoadJSON setData={setData} setReg={setReg} />
       </div>
       <div id="Content">
         <div id="LeftSection">
@@ -89,10 +90,10 @@ function App() {
         </div>
       </div>
     </div>
-  );
+  ) : <div>Loading...</div>;
 }
 
-function LoadJSON({setData}) {
+function LoadJSON({setData, setReg}) {
   const fileInput = useRef();
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
@@ -104,7 +105,9 @@ function LoadJSON({setData}) {
     if(isValid) {
       setFile(_file);
       _file.text().then(data => {
-        setData(JSON.parse(data))
+        const json = JSON.parse(data);
+        setData(json);
+        setReg(Object.keys(json)[0])
       }).catch(err => setError(String(err)));
     } else {
       setError("Invalid File");

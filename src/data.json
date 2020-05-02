@@ -1,5 +1,5 @@
 {
-    "reg69": {
+    "chinmay": {
         "name": "I2C Adder",
         "model": {
             "name": "ST8",
@@ -41,7 +41,7 @@
             }
         ]
     },
-    "reg420": {
+    "laddha": {
         "name": "CAN Adder",
         "model": {
             "name": "ST0",
