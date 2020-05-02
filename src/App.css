@@ -146,10 +146,10 @@ body {
   font-size: 1rem;
   color: var(--invalid);
   margin-top: 10px;
-  background: url(/valid.svg) 15px no-repeat;
+  background: url(/reg-info/valid.svg) 15px no-repeat;
   background-position: left center;
   padding-left: 20px;
 }
 #LoadJSON label.error {
-  background-image: url(/error.svg);
+  background-image: url(/reg-info/error.svg);
 }
