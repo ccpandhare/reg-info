@@ -66,9 +66,14 @@ body {
 }
 
 #RegSection {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+#RegSection.summary #Bits {
+  display: none;
 }
 
 #RegName {
@@ -81,22 +86,28 @@ body {
   padding: 5px 10px;
 }
 
+#RegSection.summary #Info p {
+  margin: 5px 0;
+  font-size: 1.2rem;
+}
+
 #Bits {
   --cols: 1;
   display: grid;
-  grid-template-columns: repeat(var(--cols), min-content);
+  grid-template-columns: repeat(var(--cols), 1fr);
   grid-template-rows: repeat(3, auto);
   justify-content: center;
 }
 
 .bitInfo {
-  padding: 30px 50px;
+  padding: 30px 10px;
   display: inline-block;
   color: #fff;
   border: 1px solid var(--dark);
   cursor: pointer;
   text-align: center;
   font-weight: bold;
+  box-sizing: border-box;
 }
 .value.bitInfo {
   background: var(--invalid);
@@ -106,6 +117,14 @@ body {
 }
 .bitInfo.selected {
   background: var(--malibu);
+}
+.bitInfo.multiSelected {
+  background: var(--chalky);
+}
+.bitInfo.selected.multiSelected {
+  border-color: var(--malibu);
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 #Info {
@@ -126,7 +145,8 @@ body {
   flex-direction: column;
   align-items: flex-end;
 }
-#LoadJSON button {
+#LoadJSON button,
+#DownloadJSON button {
   padding: 10px 15px;
   border: none;
   background: var(--dark);
@@ -135,8 +155,10 @@ body {
   font-family: monospace;
   transition: all 0.2s ease;
   cursor: pointer;
+  text-decoration: none;
 }
-#LoadJSON button:hover {
+#LoadJSON button:hover,
+#DownloadJSON button:hover {
   background: var(--lightDark);
 }
 #LoadJSON input {
@@ -152,4 +174,18 @@ body {
 }
 #LoadJSON label.error {
   background-image: url(/reg-info/error.svg);
+}
+.image {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#Buttons {
+  display: flex;
+}
+#Buttons > div {
+  margin: 0 5px;
+  display: flex;
 }

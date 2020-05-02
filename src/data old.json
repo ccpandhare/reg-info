@@ -1,6 +1,6 @@
 {
-    "reg69": {
-        "name": "B2B COMM TEST",
+    "chinmay": {
+        "name": "I2C Adder",
         "model": {
             "name": "ST8",
             "addr": ["0x50 W", "0x51 R"]
@@ -41,7 +41,7 @@
             }
         ]
     },
-    "reg420": {
+    "laddha": {
         "name": "CAN Adder",
         "model": {
             "name": "ST0",
@@ -82,5 +82,9 @@
                 "info": ["bit3.value0.info", "bit3.value1.info"]
             }
         ]
+    },
+    "SCH 1": {
+        "type": "image",
+        "location": "https://siddhantladdha.com/files_01/arch_linux_sleepless_nights.png"
     }
 }
